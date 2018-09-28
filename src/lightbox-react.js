@@ -1475,7 +1475,7 @@ class LightboxReact extends Component {
             >
                 <div // eslint-disable-line jsx-a11y/no-static-element-interactions
                     // Floating modal with closing animations
-                    className={`outer ril-outer ${styles.outer} ${styles.outerAnimating}` +
+                    className={`outer ril-outer ${this.props.className} ${styles.outer} ${styles.outerAnimating}` +
                         (isClosing ? ` closing ril-closing ${styles.outerClosing}` : '')
                     }
                     style={{
