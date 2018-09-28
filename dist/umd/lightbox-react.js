@@ -1083,7 +1083,7 @@
                     }, _react2.default.createElement("div", {
                         // eslint-disable-line jsx-a11y/no-static-element-interactions
                         // Floating modal with closing animations
-                        className: "outer ril-outer " + styles.outer + " " + styles.outerAnimating + (isClosing ? " closing ril-closing " + styles.outerClosing : ""),
+                        className: "outer ril-outer " + this.props.className + " " + styles.outer + " " + styles.outerAnimating + (isClosing ? " closing ril-closing " + styles.outerClosing : ""),
                         style: {
                             transition: "opacity " + animationDuration + "ms",
                             animationDuration: animationDuration + "ms",
@@ -1241,6 +1241,7 @@
             // Thumbnail image url corresponding to props.nextSrc
             nextSrcThumbnail: _propTypes2.default.string,
             // eslint-disable-line react/no-unused-prop-types
+            className: _propTypes2.default.string,
             //-----------------------------
             // Event Handlers
             //-----------------------------

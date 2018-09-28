@@ -1636,7 +1636,7 @@ LightboxReact.propTypes = {
 
     // Thumbnail image url corresponding to props.nextSrc
     nextSrcThumbnail: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
-
+    className: PropTypes.string,
     //-----------------------------
     // Event Handlers
     //-----------------------------
