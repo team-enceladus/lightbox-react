@@ -527,13 +527,8 @@
             }, {
                 key: "handleImageMouseWheel",
                 value: function(event) {
-                    event.preventDefault();
-                    var yThreshold = _constant.WHEEL_MOVE_Y_THRESHOLD;
-                    if (Math.abs(event.deltaY) >= Math.abs(event.deltaX)) {
-                        // If the vertical scroll amount was large enough, perform a zoom
-                        if (event.stopPropagation(), Math.abs(event.deltaY) < yThreshold) return;
-                        this.scrollX = 0, this.scrollY += event.deltaY, this.changeZoom(this.state.zoomLevel - event.deltaY, event.clientX, event.clientY);
-                    }
+                    return this.props.enableScroll ? this : (event.preventDefault(), void (Math.abs(event.deltaY) >= Math.abs(event.deltaX) && (event.stopPropagation(), 
+                    this.scrollX = 0, this.scrollY += event.deltaY, this.changeZoom(this.state.zoomLevel - event.deltaY, event.clientX, event.clientY))));
                 }
             }, {
                 key: "handleImageDoubleClick",
@@ -1242,6 +1237,7 @@
             nextSrcThumbnail: _propTypes2.default.string,
             // eslint-disable-line react/no-unused-prop-types
             className: _propTypes2.default.string,
+            enableScroll: _propTypes2.default.bool,
             //-----------------------------
             // Event Handlers
             //-----------------------------
