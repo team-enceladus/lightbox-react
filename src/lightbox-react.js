@@ -21,7 +21,6 @@ import {
     MAX_ZOOM_LEVEL,
     ZOOM_RATIO,
     WHEEL_MOVE_X_THRESHOLD,
-    WHEEL_MOVE_Y_THRESHOLD,
     ZOOM_BUTTON_INCREMENT_SIZE,
     ACTION_NONE,
     ACTION_MOVE,
@@ -619,24 +618,21 @@ class LightboxReact extends Component {
     }
 
     handleImageMouseWheel(event) {
+        if (this.props.enableScroll) {
+            return this;
+        }
         event.preventDefault();
-        const yThreshold = WHEEL_MOVE_Y_THRESHOLD;
-
         if (Math.abs(event.deltaY) >= Math.abs(event.deltaX)) {
             event.stopPropagation();
-            // If the vertical scroll amount was large enough, perform a zoom
-            if (Math.abs(event.deltaY) < yThreshold) {
-                return;
-            }
 
             this.scrollX = 0;
             this.scrollY += event.deltaY;
 
             this.changeZoom(
-                this.state.zoomLevel - event.deltaY,
-                event.clientX,
-                event.clientY
-            );
+              this.state.zoomLevel - event.deltaY,
+              event.clientX,
+              event.clientY
+          );
         }
     }
 
@@ -1637,6 +1633,7 @@ LightboxReact.propTypes = {
     // Thumbnail image url corresponding to props.nextSrc
     nextSrcThumbnail: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
     className: PropTypes.string,
+    enableScroll: PropTypes.bool,
     //-----------------------------
     // Event Handlers
     //-----------------------------
