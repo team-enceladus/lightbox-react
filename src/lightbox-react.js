@@ -570,6 +570,9 @@ class LightboxReact extends Component {
      * Handle a mouse wheel event over the lightbox container
      */
     handleOuterMousewheel(event) {
+        if (this.props.enableScroll) {
+            return this;
+        }
         // Prevent scrolling of the background
         event.preventDefault();
         event.stopPropagation();

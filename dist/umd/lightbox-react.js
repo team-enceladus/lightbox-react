@@ -502,6 +502,7 @@
                 key: "handleOuterMousewheel",
                 value: function(event) {
                     var _this5 = this;
+                    if (this.props.enableScroll) return this;
                     // Prevent scrolling of the background
                     event.preventDefault(), event.stopPropagation();
                     var xThreshold = _constant.WHEEL_MOVE_X_THRESHOLD, actionDelay = 0, imageMoveDelay = 500;
